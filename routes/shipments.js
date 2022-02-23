@@ -26,6 +26,8 @@ router.post("/", async function (req, res, next) {
     throw new BadRequestError(errs);
   }
 
+  // CR: Once validated, good to just pass req.body directly into 
+  // shipProduct.
   const { productId, name, addr, zipcode } = req.body;
   const shipId = await shipProduct({ productId, name, addr, zipcode });
   return res.json({ shipped: shipId });

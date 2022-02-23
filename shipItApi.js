@@ -26,6 +26,8 @@ async function shipProduct({ productId, name, addr, zip }) {
     },
   });
 
+  console.log("resp.data: ",resp.data);
+
   return resp.data.receipt.shipId;
 }
 
